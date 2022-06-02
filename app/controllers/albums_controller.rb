@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   
   def index
-    @album = Album.all
+    @albums = Album.all
   end
 
   def show
@@ -36,10 +36,10 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+    @album = Album.find(params[:id])
+    @album.destroy
 
-    redirect_to @article, notice: 'Deleted successfully'
+    redirect_to @album, notice: 'Deleted successfully'
   end
 
   private
@@ -47,5 +47,5 @@ class AlbumsController < ApplicationController
   def album_params
     params.require(:album).permit(:name,:description)
   end
-  
+
 end
