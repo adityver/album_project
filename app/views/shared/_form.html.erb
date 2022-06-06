@@ -1,8 +1,22 @@
 <%= form_with model: @album do |form|%>
+    <%if @album.errors.any?%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
 
+            <% @album.errors.full_messages.each do |msg|%>
+                    <li><strong><%= msg%></strong></li>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            
+            <%end%>
+        </div>
+    <%end%>
     <div class="form-group mb-3">
         <%= form.label :name , class: "form-label"%>
         <%= form.text_field :name , class: "form-control"%>
+    </div>
+
+    <div class="form_group">
+        <%= form.label :images, class: "form-label"%>
+        <%= form.file_field :images, multiple: true %>
     </div>
 
     <div class="form-group mb-3">

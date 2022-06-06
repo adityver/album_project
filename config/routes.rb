@@ -4,4 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "albums#index"
   resources :albums
+
+  resources :albums do
+    member do
+     delete :delete_image_attachment
+    end
+  end
+
 end

@@ -1,7 +1,22 @@
 <div class="mt-5">
-    <h1 class="text-center text-white"><%= @album.name %></h1>
-    <p class="text-center text-white"><%= @album.description %></p>
+    <h1 class="text-center text-white mb-3"><%= @album.name %></h1>
+    <div class="row">
+        
+            <% (0...@album.images.count).each do |image|%>
+                <div class="col col-md-4">
+                    <div class=card>
+                        <%= image_tag(@album.thumbnail(image), class: "card-img-top")%>
+                        <div class="card-body">
+                            <%if current_user == @album.user%>
+                                 <%= link_to "Delete", delete_image_attachment_album_url(@album.images[image]), method: :delete, data: {confirm: "Are you sure?"},class:"btn btn-primary mt-2" %>
+                            <% end %>
+                        </div>
+                    </div>    
+                </div>
+            <% end %>
+        
+    </div>
+    <p class="text-center text-white mt-4"><%= @album.description %></p>
 </div>
-
 
 <%= link_to "Back", root_path, class: "btn btn-primary"%>
