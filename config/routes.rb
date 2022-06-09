@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "albums#index"
   resources :albums
+  # get '/filter', to:"albums#tag_filter"
 
   resources :albums do
     member do

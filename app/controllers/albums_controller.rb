@@ -1,8 +1,9 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index,:show]
 
   def index
-    @albums = Album.all
+    @albums = Album.all.page(params[:page])
+    @cnt = Album.all
   end
 
   def show
@@ -49,10 +50,14 @@ class AlbumsController < ApplicationController
     redirect_back(fallback_location: albums_path)
   end
 
+  def tag_filter
+    @album = Album.tagged_with
+  end
+
   private
 
   def album_params
-    params.require(:album).permit(:name,:description, images: [])
+    params.require(:album).permit(:name,:description,:all_tags,images: [])
   end
 
 end

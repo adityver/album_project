@@ -13,13 +13,13 @@
  *= require_tree .
  *= require_self
  */
-
+@import "bootstrap/scss/bootstrap";
 
 
  body {
     /* background-image: url("bg3.webp"); */
        
-        background: rgb(2,0,36) !important;
+        background: rgb(2,0,36) !important; 
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(116,116,235,1) 0%, rgba(0,212,255,1) 100%) !important;
         background-repeat: no-repeat; 
     }
@@ -38,5 +38,6 @@
     color: white;
     text-align: center;
   }
+
 
  

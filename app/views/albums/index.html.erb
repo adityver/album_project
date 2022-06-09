@@ -1,12 +1,13 @@
 <h1 class="mt-3">All Albums</h1>
 
-<h5>Total Album Count: <%= @albums.all.count %></h5>
+<h5>Total Album Count: <%= @cnt.all.count %></h5>
 
 <table class="table tab">
     <thead>
         <tr>
             <th>User</th>
             <th>Album Name</th>
+            <th>Tags</th>
             <th>Show</th>
             <% if user_signed_in? %>
                 <th>Edit</th>
@@ -21,6 +22,7 @@
             <tr>
                 <td><%= album.user.full_name%></td>
                 <td><%= album.name%></td>
+                <td><%=link_to album.all_tags,root_path %></td>>
                 <td><%= link_to "Show",album_path(album), class: "btn btn-primary" %></td>
                 <%if current_user == album.user%>
                      <td><%= link_to "Edit",edit_album_path(album), class: "btn btn-primary" %></td>
@@ -34,6 +36,17 @@
     </tbody>
 
 </table>
+
+
+<div class=" d-flex mt-5" style="width: 100%;">
+    <div class="m-auto">   
+        <%= paginate @albums, theme: 'bootstrap-5',pagination_class: "pagination flex-wrap justify-content-center",
+            nav_class: "d-inline-block"%>
+    </div>
+</div>
+
+
+
 
 
     
