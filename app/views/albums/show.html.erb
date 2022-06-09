@@ -5,7 +5,7 @@
             <% (0...@album.images.count).each do |image|%>
                 <div class="col col-md-4">
                     <div class=card>
-                        <%= image_tag(@album.thumbnail(image), class: "card-img-top")%>
+                        <%= image_tag(@album.thumbnail(image),alt: "Image", class: "card-img-top")%>
                         <div class="card-body">
                             <%if current_user == @album.user%>
                                  <%= link_to "Delete", delete_image_attachment_album_url(@album.images[image]), method: :delete, data: {confirm: "Are you sure?"},class:"btn btn-primary mt-2" %>
