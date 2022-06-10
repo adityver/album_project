@@ -36,7 +36,10 @@ class Album < ApplicationRecord
         end
     end   
 
-    def all_tags
-        tags.map(&:name).join(", ")
+    def all_tags tag= nil
+        # tags.map(&:name).join(", ")
+        if tag != nil
+            tag.name
+        end
     end
 end

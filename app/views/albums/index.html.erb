@@ -22,7 +22,11 @@
             <tr>
                 <td><%= album.user.full_name%></td>
                 <td><%= album.name%></td>
-                <td><%=link_to album.all_tags,root_path %></td>>
+                <td>
+                <% album.tags.each do |tag| %>
+                    <%=link_to album.all_tags(tag),tags_path %><br>
+                <%end%>
+                </td>
                 <td><%= link_to "Show",album_path(album), class: "btn btn-primary" %></td>
                 <%if current_user == album.user%>
                      <td><%= link_to "Edit",edit_album_path(album), class: "btn btn-primary" %></td>
@@ -46,8 +50,4 @@
 </div>
 
 
-
-
-
-    
 
