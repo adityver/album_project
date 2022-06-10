@@ -38,7 +38,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = current_user.find(params[:id])
+    @album = current_user.albums.find(params[:id])
     @album.destroy
 
     redirect_to @album, notice: 'Deleted successfully'
