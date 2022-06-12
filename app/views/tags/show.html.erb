@@ -1,0 +1,19 @@
+<h1>Tags</h1>
+<div class="row">
+    
+        <% @tag.albums.each do |t|%>
+            <div class="col col-md-4 mb-2">
+                <div class="card mb-2" style="width: 18rem;">
+            
+                <div class="card-body">
+                    <h5 class="card-title"><%= t.name %></h5>
+                    <p class="card-text">S<%= t.description %></p>
+                    <%= link_to "Show",album_path(t), class: "btn btn-primary" %>  </div>
+                </div>
+            </div>
+        <% end %>
+    
+</div>
+
+
+<%= link_to "back", root_path, class: "btn btn-primary"%>
